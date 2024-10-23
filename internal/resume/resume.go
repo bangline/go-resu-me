@@ -11,10 +11,17 @@ import (
 )
 
 type Resume struct {
+	Colors            Colors
 	Name              string    `yaml:"name"`
 	Details           []string  `yaml:"details"`
 	PersonalStatement string    `yaml:"personal_statement"`
 	Sections          []Section `yaml:"sections"`
+}
+type Colors struct {
+	Bg      string
+	Heading string
+	Text    string
+	Accent  string
 }
 
 func LoadResume(yamlFilePath string) (*Resume, error) {
@@ -32,7 +39,7 @@ func LoadResume(yamlFilePath string) (*Resume, error) {
 	return &resume, nil
 }
 
-func (r *Resume) Generate(path string, theme string) error {
+func (r *Resume) Generate(path string, theme string, colors Colors) error {
 	templateFiles := []string{
 		"templates/" + theme + "/resume.html.tmpl",
 		"templates/" + theme + "/header.html.tmpl",
@@ -41,6 +48,8 @@ func (r *Resume) Generate(path string, theme string) error {
 		"templates/" + theme + "/multiple_roles.html.tmpl",
 		"templates/" + theme + "/single_role.html.tmpl",
 	}
+
+	r.Colors = colors
 
 	tmpl, err := template.New("resume.html.tmpl").Funcs(templateHelperFunctions()).ParseFiles(templateFiles...)
 	if err != nil {

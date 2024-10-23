@@ -1,15 +1,15 @@
 {{ define "single_role" }}
 <article class="my-4">
-  <div class="text-gray-800 w-full">
-    <div class="grid grid-cols-3 gap-3 text-lg font-medium text-violet-900">
+  <div class="w-full">
+    <div class="grid grid-cols-3 gap-3 text-lg font-medium accent-color">
       <h3>{{ .Position }}</h3>
       <h3 class="text-center">{{ .Company }} <span class="font-light">({{ .Location }})</span></h3>
       <h3 class="text-right">{{ .Dates }}</h3>
     </div>
   </div>
-  <p class="text-gray-600 font-base my-2"></p>
+  <p class="font-base my-2"></p>
   <div class="ml-4">
-    <ul class="list-disc list-outside text-gray-600">
+    <ul class="list-disc list-outside">
       {{ range .Bullets }}
       <li>{{ . | md }}</li>
       {{ end }}

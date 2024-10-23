@@ -5,37 +5,48 @@
     <title>{{ .Name }} Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+      .bg-color {
+        background-color: {{ .Colors.Bg }};
+      }
+      h1, h2, h3, h4 {
+        color: {{ .Colors.Heading }};
+      }
+      p, li {
+        color: {{ .Colors.Text }};
+      }
+      .accent-color h3 {
+        color: {{ .Colors.Accent }};
+      }
       @media print {
-          body {
-            background-color: white !important;
-            padding: 0 !important;
-            print-color-adjust: exact;
-            -webkit-print-color-adjust: exact;
-          }
+        body {
+          background-color: white !important;
+          padding: 0 !important;
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
 
-          main {
-            box-shadow: none !important;
-            max-width: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-          }
+        main {
+          box-shadow: none !important;
+          max-width: none !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
 
-          h1, h2, h3, h4, p, li {
-            color: black !important;
-          }
+        h1, h2, h3, h4, p, li {
+          color: black !important;
+        }
 
-          .text-violet-900 h3 {
-            color: #4c1d95 !important
-          }
+        .accent-color h3 {
+        color: {{ .Colors.Accent }} !important;
+      }
 
-
-          article {
-            page-break-inside: avoid;
-          }
+        article {
+          page-break-inside: avoid;
+        }
       }
   </style>
 </head>
-<body class="bg-violet-50 min-h-screen py-8">
+<body class="bg-color min-h-screen py-8">
   <main class="container mx-auto px-4 pb-8 max-w-4xl bg-white overflow-hidden rounded-lg shadow">
     {{ template "header" . }}
     {{ range .Sections }}
