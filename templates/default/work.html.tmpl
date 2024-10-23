@@ -1,0 +1,9 @@
+{{ define "work" }}
+  {{ range getWorkEntries . }}
+    {{ if hasRoles . }}
+    {{ template "multiple_roles" . }}
+    {{ else }}
+      {{ template "single_role" . }}
+    {{ end }}
+  {{ end }}
+{{ end }}

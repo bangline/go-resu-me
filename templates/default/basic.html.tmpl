@@ -1,0 +1,7 @@
+{{ define "basic" }}
+<ul class="list-disc list-inside text-gray-600">
+  {{ range getBasicEntries . }}
+  <li>{{ . | md }}</li>
+  {{ end }}
+</ul>
+{{ end }}

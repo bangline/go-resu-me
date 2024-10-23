@@ -1,0 +1,27 @@
+---
+sections:
+  - title: Work experiences
+    entries:
+      - type: work
+        position: Robot 1
+        company: Acme
+        dates: Summer - Winter
+        bullets:
+          - bullet 1
+          - bullet 2
+      - type: work
+        company: Blahmo
+        dates: May - December
+        roles:
+          - position: Robot 2
+            dates: November - December
+            team: A-Team
+            bullets:
+              - bullet 3
+              - bullet 4
+              - bullet 5
+          - position: Robot 3
+            dates: June - November
+            team: B-Team
+            bullets:
+              - bullet 6

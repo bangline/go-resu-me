@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Name }} Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @media print {
+          body {
+            background-color: white !important;
+            padding: 0 !important;
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+          }
+
+          main {
+            box-shadow: none !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+
+          h1, h2, h3, h4, p, li {
+            color: black !important;
+          }
+
+          .text-violet-900 h3 {
+            color: #4c1d95 !important
+          }
+
+
+          article {
+            page-break-inside: avoid;
+          }
+      }
+  </style>
+</head>
+<body class="bg-violet-50 min-h-screen py-8">
+  <main class="container mx-auto px-4 pb-8 max-w-4xl bg-white overflow-hidden rounded-lg shadow">
+    {{ template "header" . }}
+    {{ range .Sections }}
+    <section class="px-8 pt-2">
+      <h2 class="text-xl font-semibold mb-2">{{ .Title }}</h2>
+      {{ if isBasicSection . }}
+        {{ template "basic" . }}
+      {{ else if isWorkSection . }}
+        {{ template "work" . }}
+      {{ end }}
+    </section>
+    {{ end }}
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+---
+sections:
+  - title: My first section
+    entries:
+      - entry 1
+      - entry 2
+  - title: My second section
+    entries:
+      - entry 3
+      - entry 4
+      - entry 5
