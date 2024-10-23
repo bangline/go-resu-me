@@ -9,7 +9,7 @@ import (
 
 func main() {
 	sourcePath := flag.String("source", "yaml/master.yml", "Path to yaml file to build resume from")
-	outputPath := flag.String("out", "out/resume.html", "Path to output html file for the resume")
+	outputPath := flag.String("out", "resume.html", "Path to output html file for the resume")
 	themeName := flag.String("theme", "default", "Theme to use for the resume")
 	flag.Parse()
 
