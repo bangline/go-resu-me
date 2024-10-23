@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	sourcePath := flag.String("source", "yaml/master.yml", "Path to yaml file to build resume from")
+	sourcePath := flag.String("source", "resume.yml", "Path to yaml file to build resume from")
 	outputPath := flag.String("out", "resume.html", "Path to output html file for the resume")
 	themeName := flag.String("theme", "default", "Theme to use for the resume")
 	bgColor := flag.String("bg", "#f5f3ff", "Color of the web background")
